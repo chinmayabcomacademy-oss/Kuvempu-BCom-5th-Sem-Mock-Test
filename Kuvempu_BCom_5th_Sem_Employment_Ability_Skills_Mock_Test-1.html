@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kuvempu University B.Com 5th Sem – Employment Ability Skills</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6fb;color:#172033}
+header{background:#173b8f;color:#fff;padding:20px 14px;position:sticky;top:0;z-index:5}
+.wrap{max-width:900px;margin:auto}.title{font-size:22px;font-weight:800}.sub{margin-top:6px;font-size:13px;opacity:.9}
+.bar{height:9px;background:#ffffff44;border-radius:20px;margin-top:14px}.bar>div{height:100%;width:0;background:#fff;border-radius:20px}
+main{max-width:900px;margin:18px auto;padding:0 12px 60px}.intro,.q,.result{background:#fff;border-radius:14px;padding:16px;margin:12px 0;box-shadow:0 2px 10px #00000010}
+.q{border-left:5px solid #dbe6ff}.module{display:inline-block;background:#edf2ff;color:#244ca3;padding:5px 9px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:8px}
+.q h3{font-size:16px;line-height:1.5;margin:4px 0 13px}.opt{display:block;border:1px solid #d8deea;border-radius:10px;padding:11px;margin:8px 0;cursor:pointer}.opt:hover{background:#f5f8ff}
+.correct{background:#eaf8ef!important;border-color:#54ae76!important}.wrong{background:#fff0f0!important;border-color:#dc7474!important}
+.ans{display:none;background:#f4f6fa;border-radius:10px;padding:11px;margin-top:10px;line-height:1.5}.ans b{color:#16803c}
+button{width:100%;border:0;border-radius:12px;padding:14px;margin-top:8px;font-weight:800;font-size:16px;cursor:pointer}
+#check{background:#2563eb;color:white}#reset{background:#e8edf7;display:none}
+.result{display:none;text-align:center}.score{font-size:34px;font-weight:900;color:#2563eb}
+.small{font-size:13px;color:#667085}
+@media(max-width:600px){.title{font-size:19px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="title">Kuvempu University – B.Com 5th Sem</div>
+<div class="sub">SEP • Course Code: COM 5.7 (SEC) • Employment Ability Skills</div>
+<div class="bar"><div id="progress"></div></div>
+</div></header>
+<main>
+<div class="intro"><b>Online Mock Test – 30 MCQs</b><br>
+Select one option for each question. When you click <b>Check Result & Show Answers</b>, your score will be calculated and the correct answer with explanation will appear.</div>
+<div id="quiz"></div>
+<div class="result" id="result"><div class="small">YOUR RESULT</div><div class="score" id="score"></div><div id="msg"></div><div class="small" id="attempted"></div></div>
+<button id="check" onclick="checkResult()">✓ Check Result & Show Answers</button>
+<button id="reset" onclick="location.reload()">↻ Retake Test</button>
+</main>
+<script>
+const questions=[{"module": "Module 1 – Soft Skills", "q": "Which of the following is an example of non-verbal communication?", "o": ["Writing an email", "Facial expression", "Giving a speech", "Writing a report"], "a": 1, "e": "Facial expressions communicate meaning without spoken or written words."}, {"module": "Module 1 – Soft Skills", "q": "The main purpose of effective listening is to:", "o": ["Interrupt the speaker", "Understand the speaker's message accurately", "Avoid communication", "Speak continuously"], "a": 1, "e": "Effective listening focuses on correctly understanding the speaker's message."}, {"module": "Module 1 – Soft Skills", "q": "Which is a characteristic of excellent written communication?", "o": ["Clarity", "Confusion", "Unnecessary repetition", "Very difficult language"], "a": 0, "e": "Clarity helps the reader understand the message easily."}, {"module": "Module 1 – Soft Skills", "q": "Teamwork means:", "o": ["Working against team members", "Sharing responsibilities to achieve a common goal", "Avoiding communication", "Working without a goal"], "a": 1, "e": "Teamwork involves cooperation and shared responsibility toward a common objective."}, {"module": "Module 1 – Soft Skills", "q": "The best approach to conflict resolution is to:", "o": ["Increase the disagreement", "Find a constructive solution", "Ignore the issue forever", "Blame others"], "a": 1, "e": "Conflict resolution aims to solve disagreements constructively."}, {"module": "Module 1 – Soft Skills", "q": "Which quality helps build positive interpersonal relationships?", "o": ["Mutual respect", "Dishonesty", "Constant criticism", "Lack of trust"], "a": 0, "e": "Mutual respect is an important foundation of healthy workplace relationships."}, {"module": "Module 1 – Soft Skills", "q": "Effective leadership involves:", "o": ["Guiding and influencing people toward a goal", "Avoiding responsibility", "Using fear only", "Ignoring team members"], "a": 0, "e": "Leadership involves guiding, influencing and motivating people toward objectives."}, {"module": "Module 1 – Soft Skills", "q": "Which behaviour reflects workplace professionalism?", "o": ["Punctuality and responsibility", "Ignoring deadlines", "Sharing confidential information", "Disrespecting colleagues"], "a": 0, "e": "Punctuality, responsibility and appropriate conduct are professional behaviours."}, {"module": "Module 1 – Soft Skills", "q": "Which of these is an important part of verbal communication?", "o": ["Spoken words", "Facial expression only", "Body posture only", "Eye movement only"], "a": 0, "e": "Verbal communication primarily uses spoken or written words; in this question, spoken words are the relevant choice."}, {"module": "Module 1 – Soft Skills", "q": "In a team, active listening helps members to:", "o": ["Understand each other's ideas", "Avoid all discussion", "Create confusion", "Stop cooperation"], "a": 0, "e": "Active listening improves understanding and cooperation among team members."}, {"module": "Module 2 – Quantitative Aptitude", "q": "The HCF of 24 and 36 is:", "o": ["6", "8", "12", "18"], "a": 2, "e": "The highest common factor of 24 and 36 is 12."}, {"module": "Module 2 – Quantitative Aptitude", "q": "The LCM of 8 and 12 is:", "o": ["16", "20", "24", "48"], "a": 2, "e": "The least common multiple of 8 and 12 is 24."}, {"module": "Module 2 – Quantitative Aptitude", "q": "If A:B = 3:5 and A = 24, B is:", "o": ["30", "36", "40", "45"], "a": 2, "e": "3 parts = 24, so 1 part = 8 and 5 parts = 40."}, {"module": "Module 2 – Quantitative Aptitude", "q": "The average of 12, 18 and 24 is:", "o": ["16", "18", "20", "22"], "a": 1, "e": "Average = (12+18+24)/3 = 18."}, {"module": "Module 2 – Quantitative Aptitude", "q": "What is 25% of 240?", "o": ["40", "50", "60", "80"], "a": 2, "e": "25% of 240 = 60."}, {"module": "Module 2 – Quantitative Aptitude", "q": "A person aged 20 years will be how old after 7 years?", "o": ["25", "26", "27", "28"], "a": 2, "e": "20 + 7 = 27 years."}, {"module": "Module 2 – Quantitative Aptitude", "q": "An item bought for ₹800 is sold for ₹920. The profit is:", "o": ["₹100", "₹120", "₹140", "₹160"], "a": 1, "e": "Profit = ₹920 − ₹800 = ₹120."}, {"module": "Module 2 – Quantitative Aptitude", "q": "A car travels at 60 km/h for 2.5 hours. Distance covered is:", "o": ["120 km", "135 km", "150 km", "180 km"], "a": 2, "e": "Distance = Speed × Time = 60 × 2.5 = 150 km."}, {"module": "Module 2 – Quantitative Aptitude", "q": "If P = ₹5,000, R = 8% and T = 2 years, simple interest is:", "o": ["₹400", "₹600", "₹800", "₹1,000"], "a": 2, "e": "SI = PRT/100 = 5000×8×2/100 = ₹800."}, {"module": "Module 2 – Quantitative Aptitude", "q": "If 5 workers complete a job in 12 days, total work is:", "o": ["17 worker-days", "50 worker-days", "60 worker-days", "72 worker-days"], "a": 2, "e": "Total work = 5 × 12 = 60 worker-days."}, {"module": "Module 2 – Quantitative Aptitude", "q": "A train covers 180 km in 3 hours. Its average speed is:", "o": ["50 km/h", "60 km/h", "70 km/h", "90 km/h"], "a": 1, "e": "Average speed = 180/3 = 60 km/h."}, {"module": "Module 2 – Quantitative Aptitude", "q": "A product marked ₹1,000 is sold at a 10% discount. Selling price is:", "o": ["₹850", "₹900", "₹910", "₹990"], "a": 1, "e": "10% of ₹1,000 is ₹100, so selling price is ₹900."}, {"module": "Module 2 – Quantitative Aptitude", "q": "If 4 pens cost ₹60, the cost of 10 pens at the same rate is:", "o": ["₹120", "₹140", "₹150", "₹160"], "a": 2, "e": "One pen costs ₹15; 10 pens cost ₹150."}, {"module": "Module 2 – Quantitative Aptitude", "q": "If a clock shows 3:00, the angle between the hour and minute hands is:", "o": ["60°", "90°", "120°", "180°"], "a": 1, "e": "At 3:00 the hands form a right angle of 90°."}, {"module": "Module 3 – Verbal & Non-verbal Reasoning", "q": "If CAT is coded as DBU by moving every letter one step forward, DOG is coded as:", "o": ["EPH", "EOG", "DPH", "FQI"], "a": 0, "e": "D→E, O→P and G→H, giving EPH."}, {"module": "Module 3 – Verbal & Non-verbal Reasoning", "q": "Pointing to a boy, Ravi says, 'He is the son of my mother's only daughter.' If Ravi has one sister, the boy is Ravi's:", "o": ["Brother", "Son", "Nephew", "Father"], "a": 2, "e": "Ravi's mother's only daughter is his sister; her son is his nephew."}, {"module": "Module 3 – Verbal & Non-verbal Reasoning", "q": "Find the next number: 2, 6, 12, 20, 30, ?", "o": ["36", "40", "42", "44"], "a": 2, "e": "Differences are 4, 6, 8, 10; next is 12, so 30+12=42."}, {"module": "Module 3 – Verbal & Non-verbal Reasoning", "q": "Find the missing number: 3, 9, 27, 81, ?", "o": ["162", "189", "243", "324"], "a": 2, "e": "Each term is multiplied by 3; 81×3=243."}, {"module": "Module 3 – Verbal & Non-verbal Reasoning", "q": "If all roses are flowers, which conclusion is definitely true?", "o": ["All roses are flowers", "All flowers are roses", "Some roses are not flowers", "No roses are flowers"], "a": 0, "e": "The first statement directly establishes that all roses are flowers."}, {"module": "Module 3 – Verbal & Non-verbal Reasoning", "q": "A is to the left of B and C is to the right of B. Who is in the middle?", "o": ["A", "B", "C", "Cannot be determined"], "a": 1, "e": "The order is A-B-C, so B is in the middle."}, {"module": "Module 3 – Verbal & Non-verbal Reasoning", "q": "Which is a non-verbal reasoning activity?", "o": ["Blood relation", "Coding-decoding", "Paper folding", "Decision making"], "a": 2, "e": "Paper folding is a visual/non-verbal reasoning activity."}, {"module": "Module 3 – Verbal & Non-verbal Reasoning", "q": "Mirror-image questions mainly test the ability to:", "o": ["Calculate percentages", "Visualise reversed figures", "Find averages", "Solve profit and loss"], "a": 1, "e": "Mirror-image problems test visualisation of reflected figures."}, {"module": "Module 3 – Verbal & Non-verbal Reasoning", "q": "Cubes and dice questions mainly involve:", "o": ["Three-dimensional spatial reasoning", "Grammar", "Profit and loss", "Time and work"], "a": 0, "e": "Cubes and dice require three-dimensional visualisation."}, {"module": "Module 3 – Verbal & Non-verbal Reasoning", "q": "If every second letter is selected from ABCDEFGH starting with A, the sequence is:", "o": ["ABCD", "ACEG", "BDFH", "EFGH"], "a": 1, "e": "Positions 1, 3, 5 and 7 are A, C, E and G."}];
+function render(){
+document.getElementById('quiz').innerHTML=questions.map((x,i)=>`
+<div class="q" id="q${i}">
+<div class="module">${x.module}</div>
+<h3>${i+1}. ${x.q}</h3>
+${x.o.map((v,j)=>`<label class="opt" id="q${i}o${j}"><input type="radio" name="q${i}" value="${j}" onchange="progress()"> <b>${String.fromCharCode(65+j)}.</b> ${v}</label>`).join('')}
+<div class="ans" id="a${i}"></div>
+</div>`).join('');
+}
+function progress(){let n=0;questions.forEach((_,i)=>{if(document.querySelector('input[name="q'+i+'"]:checked'))n++});document.getElementById('progress').style.width=(n/questions.length*100)+'%'}
+function checkResult(){
+let score=0,attempted=0;
+questions.forEach((x,i)=>{
+let s=document.querySelector('input[name="q'+i+'"]:checked');attempted+=!!s;
+document.querySelectorAll('#q'+i+' .opt').forEach(e=>e.classList.remove('correct','wrong'));
+if(s){let v=+s.value;if(v===x.a){score++;document.getElementById('q'+i+'o'+v).classList.add('correct')}else{document.getElementById('q'+i+'o'+v).classList.add('wrong');document.getElementById('q'+i+'o'+x.a).classList.add('correct')}}else document.getElementById('q'+i+'o'+x.a).classList.add('correct');
+let a=document.getElementById('a'+i);a.style.display='block';a.innerHTML='<b>Correct Answer: '+String.fromCharCode(65+x.a)+'. '+x.o[x.a]+'</b><br>'+x.e;
+});
+let p=Math.round(score/questions.length*100);document.getElementById('score').textContent=score+' / '+questions.length+' ('+p+'%)';
+document.getElementById('msg').textContent=p>=80?'Excellent! 🎯':p>=60?'Good attempt! Keep practising. 💪':p>=40?'Revise and practise again. 📚':'Revise the concepts and try again. 🔁';
+document.getElementById('attempted').textContent='Attempted: '+attempted+' / '+questions.length+' • Unattempted: '+(questions.length-attempted);
+document.getElementById('result').style.display='block';document.getElementById('check').style.display='none';document.getElementById('reset').style.display='block';scrollTo({top:0,behavior:'smooth'});
+}
+render();
+</script>
+</body></html>
